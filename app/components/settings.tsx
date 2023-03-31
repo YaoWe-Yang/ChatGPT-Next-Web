@@ -91,7 +91,7 @@ export function Settings(props: { closeSettings: () => void }) {
   }
 
   useEffect(() => {
-    checkUpdate();
+    // checkUpdate();
     checkUsage();
   }, []);
 
