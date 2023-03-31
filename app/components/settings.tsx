@@ -59,17 +59,17 @@ export function Settings(props: { closeSettings: () => void }) {
   );
 
   const updateStore = useUpdateStore();
-  // const [checkingUpdate, setCheckingUpdate] = useState(false);
+  const [checkingUpdate, setCheckingUpdate] = useState(false);
   const currentId = getCurrentVersion();
   const remoteId = updateStore.remoteId;
   const hasNewVersion = currentId !== remoteId;
 
-  // function checkUpdate(force = false) {
-  //   setCheckingUpdate(true);
-  //   updateStore.getLatestCommitId(force).then(() => {
-  //     setCheckingUpdate(false);
-  //   });
-  // }
+  function checkUpdate(force = false) {
+    setCheckingUpdate(true);
+    updateStore.getLatestCommitId(force).then(() => {
+      setCheckingUpdate(false);
+    });
+  }
 
   const [usage, setUsage] = useState<{
     granted?: number;
@@ -91,7 +91,7 @@ export function Settings(props: { closeSettings: () => void }) {
   }
 
   useEffect(() => {
-    // checkUpdate();
+    checkUpdate();
     checkUsage();
   }, []);
 
@@ -167,31 +167,6 @@ export function Settings(props: { closeSettings: () => void }) {
                 <Avatar role="user" />
               </div>
             </Popover>
-          </SettingItem>
-
-          <SettingItem
-            title={Locale.Settings.Update.Version(currentId)}
-            subTitle={
-              checkingUpdate
-                ? Locale.Settings.Update.IsChecking
-                : hasNewVersion
-                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                : Locale.Settings.Update.IsLatest
-            }
-          >
-            {checkingUpdate ? (
-              <div />
-            ) : hasNewVersion ? (
-              <Link href={UPDATE_URL} target="_blank" className="link">
-                {Locale.Settings.Update.GoToUpdate}
-              </Link>
-            ) : (
-              <IconButton
-                icon={<ResetIcon></ResetIcon>}
-                text={Locale.Settings.Update.CheckUpdate}
-                onClick={() => checkUpdate(true)}
-              />
-            )}
           </SettingItem>
 
           <SettingItem title={Locale.Settings.SendKey}>
@@ -480,6 +455,27 @@ export function Settings(props: { closeSettings: () => void }) {
             ></input>
           </SettingItem>
         </List>
+		
+		<List>
+			<SettingItem
+			  title={Locale.Settings.Update.Version(currentId)}
+			  subTitle='已是最新版'
+			>
+			  {checkingUpdate ? (
+			    <div />
+			  ) : hasNewVersion ? (
+			    <Link href='https://weiie.cn' target="_blank" className="link">
+							获取技术支持
+			    </Link>
+			  ) : (
+			    <IconButton
+			      icon={<ResetIcon></ResetIcon>}
+			      text={Locale.Settings.Update.CheckUpdate}
+			      onClick={() => checkUpdate(true)}
+			    />
+			  )}
+			</SettingItem>
+		</List>
       </div>
     </>
   );
