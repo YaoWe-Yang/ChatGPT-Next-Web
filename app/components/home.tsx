@@ -8,6 +8,7 @@ import styles from "./home.module.scss";
 
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
+import WeiieIcon from "../icons/weiie.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import SendWhiteIcon from "../icons/send-white.svg";
 import BrainIcon from "../icons/brain.svg";
@@ -627,9 +628,9 @@ export function Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>ChatGPT Next</div>
+          <div className={styles["sidebar-title"]}>ChatGPT Weiie</div>
           <div className={styles["sidebar-sub-title"]}>
-            Build your own AI assistant.
+            Using chatGPT3.5/4.0.
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
@@ -668,8 +669,8 @@ export function Home() {
               />
             </div>
             <div className={styles["sidebar-action"]}>
-              <a href={REPO_URL} target="_blank">
-                <IconButton icon={<GithubIcon />} />
+              <a href="https://weiie.cn" target="_blank">
+                <IconButton icon={<WeiieIcon />} />
               </a>
             </div>
           </div>
