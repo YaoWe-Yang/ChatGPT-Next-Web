@@ -59,17 +59,17 @@ export function Settings(props: { closeSettings: () => void }) {
   );
 
   const updateStore = useUpdateStore();
-  const [checkingUpdate, setCheckingUpdate] = useState(false);
+  // const [checkingUpdate, setCheckingUpdate] = useState(false);
   const currentId = getCurrentVersion();
   const remoteId = updateStore.remoteId;
   const hasNewVersion = currentId !== remoteId;
 
-  function checkUpdate(force = false) {
-    setCheckingUpdate(true);
-    updateStore.getLatestCommitId(force).then(() => {
-      setCheckingUpdate(false);
-    });
-  }
+  // function checkUpdate(force = false) {
+  //   setCheckingUpdate(true);
+  //   updateStore.getLatestCommitId(force).then(() => {
+  //     setCheckingUpdate(false);
+  //   });
+  // }
 
   const [usage, setUsage] = useState<{
     granted?: number;
