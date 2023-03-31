@@ -630,7 +630,7 @@ export function Home() {
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatGPT Weiie</div>
           <div className={styles["sidebar-sub-title"]}>
-            Using chatGPT3.5/4.0.
+            Using ChatGPT3.5/4.0.
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
