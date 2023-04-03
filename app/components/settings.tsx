@@ -381,22 +381,11 @@ export function Settings(props: { closeSettings: () => void }) {
         </List>
 
         <List>
-          <SettingItem title={Locale.Settings.Model}>
-            <select
-              value={config.modelConfig.model}
-              onChange={(e) => {
-                updateConfig(
-                  (config) =>
-                    (config.modelConfig.model = e.currentTarget.value),
-                );
-              }}
-            >
-              {ALL_MODELS.map((v) => (
-                <option value={v.name} key={v.name} disabled={!v.available}>
-                  {v.name}
-                </option>
-              ))}
-            </select>
+          <SettingItem title={Locale.Settings.Model}>			
+			<IconButton
+			  icon={<ResetIcon></ResetIcon>}
+			  text={config.modelConfig.model}
+			/>
           </SettingItem>
           <SettingItem
             title={Locale.Settings.Temperature.Title}
