@@ -8,7 +8,7 @@ import ResetIcon from "../icons/reload.svg";
 import CloseIcon from "../icons/close.svg";
 import ClearIcon from "../icons/clear.svg";
 import EditIcon from "../icons/edit.svg";
-import ChatGptIcon from "../icons/chatgpt.svg";
+import SettingsIcon from "../icons/settings.svg";
 
 import { List, ListItem, Popover, showToast } from "./ui-lib";
 
@@ -384,7 +384,7 @@ export function Settings(props: { closeSettings: () => void }) {
         <List>
           <SettingItem title={Locale.Settings.Model}>			
 			<IconButton
-			  icon={<ChatGptIcon></ChatGptIcon>}
+			  icon={<SettingsIcon></SettingsIcon>}
 			  text={config.modelConfig.model}
 			/>
           </SettingItem>
